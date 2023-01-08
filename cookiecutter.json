@@ -6,18 +6,14 @@
     "version": "0.1.0",
 
     "full_name": "guiferviz",
-    "email": "guiferviz@github.com",
-    "github_username": "guiferviz",
-    "pypi_username": "{{ cookiecutter.github_username }}",
-    "docker_namespace": "{{ cookiecutter.github_username }}",
+    "email": "",
+    "github_username": "{{ cookiecutter.full_name }}",
+    "twitter_username": "{{ cookiecutter.full_name }}",
+    "linkedin_username": "{{ cookiecutter.full_name }}",
+    "pypi_username": "{{ cookiecutter.full_name }}",
+    "docker_namespace": "{{ cookiecutter.full_name }}",
+    "google_analytics_id": "G-XXXXXXXXXX",
 
-    "create_author_file": "y",
-    "create_docs": "y",
-    "command_line_interface": [
-        "click",
-        "argparse",
-        "none"
-    ],
     "open_source_license": [
         "MIT License",
         "Apache Software License 2.0",
@@ -27,6 +23,5 @@
         "GNU Lesser General Public License v2.1",
         "BSD 2-Clause 'Simplified' License",
         "Not open source"
-    ],
-    "use_pycharm": "n"
+    ]
 }

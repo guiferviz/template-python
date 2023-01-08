@@ -2,7 +2,7 @@
 #  Base image  #
 ################
 
-FROM python:3.8
+FROM python:3.10
 
 
 #########################
@@ -29,11 +29,6 @@ RUN pip install /root/wheel/*.whl
 
 WORKDIR $WORKDIR
 
-{%- if 'none' in cookiecutter.command_line_interface|lower %}
-ENTRYPOINT ["python"]
-{%- endif %}
-{%- if 'none' not in cookiecutter.command_line_interface|lower %}
 ENTRYPOINT ["{{ cookiecutter.module_name }}"]
 # Default command:
 CMD ["--help"]
-{%- endif %}
