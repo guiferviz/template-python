@@ -1,0 +1,32 @@
+{
+    "project_name": "Python Poetry Boilerplate",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "module_name": "{{ cookiecutter.project_slug.lower().replace('-', '_') }}",
+    "project_short_description": "All you need to create a Python package with Poetry.",
+    "version": "0.1.0",
+
+    "full_name": "guiferviz",
+    "email": "guiferviz@github.com",
+    "github_username": "guiferviz",
+    "pypi_username": "{{ cookiecutter.github_username }}",
+    "docker_namespace": "{{ cookiecutter.github_username }}",
+
+    "create_author_file": "y",
+    "create_docs": "y",
+    "command_line_interface": [
+        "click",
+        "argparse",
+        "none"
+    ],
+    "open_source_license": [
+        "MIT License",
+        "Apache Software License 2.0",
+        "GNU General Public License v3.0",
+        "GNU General Public License v2.0",
+        "BSD 3-Clause 'New' or 'Revised' License",
+        "GNU Lesser General Public License v2.1",
+        "BSD 2-Clause 'Simplified' License",
+        "Not open source"
+    ],
+    "use_pycharm": "n"
+}

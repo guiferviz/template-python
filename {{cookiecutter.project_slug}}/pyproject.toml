@@ -1,0 +1,142 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.project_short_description }}"
+authors = ["{{ cookiecutter.full_name.replace("\"", "\\\"") }} <{{ cookiecutter.email }}>"]
+{%- set license_classifiers = {
+    "MIT License": "MIT",
+    "Apache Software License 2.0": "Apache-2.0",
+    "GNU General Public License v3.0": "GPL-3.0-only",
+    "GNU General Public License v2.0": "GPL-2.0-only",
+    "BSD 3-Clause 'New' or 'Revised' License": "BSD-3-Clause",
+    "GNU Lesser General Public License v2.1": "LGPL-2.1-only",
+    "BSD 2-Clause 'Simplified' License": "BSD-2-Clause",
+} %}
+{%- if cookiecutter.open_source_license in license_classifiers %}
+license = "{{ license_classifiers[cookiecutter.open_source_license] }}"
+{%- endif %}
+readme = "README.md"
+keywords = ["{{ cookiecutter.project_slug }}"]
+repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+classifiers = [
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
+"Source" = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+"Documentation" = "https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}"
+
+[tool.poetry.group.main.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.10.0"
+pytest-html = "^3.1.1"
+
+[tool.poetry.group.lint.dependencies]
+pre-commit = "^2.18.1"
+black = "^22.3.0"
+isort = "^5.10.1"
+flake8 = "^6.0.0"
+pyright = "^1.1.284"
+pdbpp = "^0.10.3"
+mypy = "^0.991"
+flake8-pyproject = "^1.2.1"
+pydocstyle = "^6.1.1"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs-material = "^8.4.0"
+mkdocstrings = {extras = ["python"], version = "^0.19.0"}
+mkdocs-charts-plugin = "^0.0.8"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+{% if 'none' not in cookiecutter.command_line_interface|lower %}
+[tool.poetry.scripts]
+"{{ cookiecutter.module_name }}" = "{{ cookiecutter.module_name }}.__main__:main"
+{%- endif %}
+
+[tool.black]
+line-length = 80
+
+[tool.isort]
+profile = "black"
+line_length = 80
+
+[tool.pyright]
+include = ["src"]
+exclude = []
+
+[tool.mypy]
+exclude = []
+plugins = [
+    "pydantic.mypy"
+]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = false
+
+[tool.coverage.report]
+# Regexes for lines to exclude from coverage
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "except ImportError",
+]
+
+[tool.flake8]
+per-file-ignores = [
+    # Imported but unused.
+    "__init__.py:F401",
+]
+exclude = [
+    ".git",
+    "__pycache__",
+]
+extend-ignore = [
+    # Indentation — black handles
+    "E1",
+    "W1",
+    # Whitespace — black handles
+    "E2",
+    "W2",
+    # Blank lines — black handles
+    "E3",
+    "W3",
+    # Imports — isort handles
+    "E4",
+    "W4",
+    # Line length — black handles
+    "E5",
+    "W5",
+]
+max-line-length = 100
+# Print the total number of errors.
+count = true
+# Print the source code generating the error/warning in question.
+show-source = true
+# Count the number of occurrences of each error/warning code and print a report.
+statistics = true
+
+[tool.pydocstyle]
+convention = "google"
+add_ignore = [
+    "D100",  # Missing docstring in public module
+    "D101",  # Missing docstring in public class
+    "D102",  # Missing docstring in public method
+    "D103",  # Missing docstring in public function
+    "D104",  # Missing docstring in public package
+    "D106",  # Missing docstring in public nested class
+    "D107",  # Missing docstring in __init__
+]
