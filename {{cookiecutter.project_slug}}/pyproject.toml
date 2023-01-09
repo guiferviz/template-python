@@ -2,6 +2,9 @@
 name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_short_description }}"
+packages = [
+    { include = "{{ cookiecutter.module_name }}", from = "src" },
+]
 authors = ["{{ cookiecutter.full_name.replace("\"", "\\\"") }} <{{ cookiecutter.email }}>"]
 {%- set license_classifiers = {
     "MIT License": "MIT",
