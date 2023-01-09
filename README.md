@@ -1,6 +1,8 @@
 # Template: Python package
 
-This is a `cookiecutter` template for quickly creating a new Python package.
+This is a [`cookiecutter`
+template](https://cookiecutter.readthedocs.io/en/stable/) for quickly creating
+a new Python package.
 
 
 ## Getting started
@@ -10,8 +12,27 @@ have it, you can create a new Python package using this template by running the
 following command:
 
 ```cmd
-cookiecutter 
+cookiecutter gh:guiferviz/template-python
 ```
+
+Alternatively you can use `cruft` for creating your project. The advantage of
+using `cruft` over `cookiecutter` is that you can update your generated project
+if the template is also updated. To create the Python project files for the
+first time you can use:
+
+```cmd
+cruft create https://github.com/guiferviz/template-python/
+```
+
+Once you have a new version of your template you can update your existing
+projects with:
+
+```cmd
+cruft update
+```
+
+See [the cruft docs](https://cruft.github.io/cruft/) for more info.
+
 
 ## Features
 
