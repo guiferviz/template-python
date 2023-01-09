@@ -1,5 +1,4 @@
-{% raw %}
-{% macro ep_header(authors=['guiferviz'], status='', created='', version='') -%}
+{% raw %}{% macro ep_header(authors=['guiferviz'], status='', created='', version='') -%}
 {{ exception("Unknown status") if status not in ["Planned", "Active", "Deprecated"] else "" }}
 <style>
     #ep-table td img { 
@@ -41,5 +40,4 @@
         <td>{{ version }}</td>
     </tr>
 </table>
-{%- endmacro %}
-{% endraw %}
+{%- endmacro %}{% endraw %}
