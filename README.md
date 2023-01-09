@@ -34,6 +34,16 @@ cruft update
 See [the cruft docs](https://cruft.github.io/cruft/) for more info.
 
 
+## TODO after cloning.
+
+* Create `PYPI_TOKEN` secret. Generate a token in PYPI and add it as a secret
+in your repo configuration.
+* Give read and write permissions to the workflow. It is needed to deploy
+`mkdocs` in a `gh-pages` branch.
+* Active GitHub pages in the project settings. You need to select `gh-pages` as
+the branch with the docs.
+
+
 ## Features
 
 The generated template comes with the following features:
