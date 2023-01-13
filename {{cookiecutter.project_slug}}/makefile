@@ -2,6 +2,7 @@ POETRY=poetry
 PYTEST=$(POETRY) run pytest
 GIT=git
 GIT_TAG=$(shell $(GIT) describe --tags)
+PYTHON_MODULE={{ cookiecutter.module_name }}
 
 
 build: requirements.txt
@@ -40,3 +41,10 @@ doc-publish:
 
 doc-serve:
 	mkdocs serve
+
+complete-zsh:
+	$(PYTHON_MODULE) -- --completion | sed 's/:/: /g' > completion
+	@echo "To activate completion in your zsh shell, run the command" \
+		" 'source ./completion'. If you want to keep the completion active " \
+		" after closing your terminal session, you can also add the command" \
+		" 'source <path to your project>/completion' to your ~/.zshrc file."
