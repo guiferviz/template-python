@@ -7,7 +7,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/cicd.yaml" target="_blank">
-        <img src="https://github.com/aidictive/{{ cookiecutter.project_slug }}/actions/workflows/cicd.yaml/badge.svg"
+        <img src="https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/cicd.yaml/badge.svg"
              alt="{{ cookiecutter.project_name }} CI pipeline status">
     </a>
     <a href="https://app.codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/" target="_blank">
