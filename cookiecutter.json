@@ -6,7 +6,7 @@
     "version": "0.1.0",
 
     "full_name": "guiferviz",
-    "email": "",
+    "email": "{{ cookiecutter.full_name }}@gmail.com",
     "github_username": "{{ cookiecutter.full_name }}",
     "twitter_username": "{{ cookiecutter.full_name }}",
     "linkedin_username": "{{ cookiecutter.full_name }}",
